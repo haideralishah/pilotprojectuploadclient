@@ -1,0 +1,353 @@
+<!--<form *ngIf="addTodoForm">
+	<legend>Task To Do</legend>
+	<label>
+        Task: <input type="text" #task>
+    </label>
+	<label>
+        Description: <input type="text" #desc>
+    </label>
+	<label>
+        Date To Perform: <input type="date" #date>
+    </label>
+
+	<input type="submit" value="Save To Do" >
+	<button type="button" class="btn btn-primary" (click)='addTodo(task, desc)'>Save To Do</button>
+
+</form>-->
+
+<!--
+<form class="form-inline" *ngIf="addTodoForm">
+	<legend>Task To Do</legend>
+	<div class="form-group">
+		<label for="task">Task:</label>
+		<input type="text" class="form-control" id="task" #task>
+	</div>
+	<div class="form-group">
+		<label for="desc">Description:</label>
+		<input type="text" class="form-control" id="desc" #desc>
+	</div>
+
+	<div class="form-group">
+		<label for="desc">Description:</label>
+		<textarea class="form-control" rows="5" id="desc" #desc></textarea>
+	</div>
+
+	<button type="button" class="btn btn-primary" (click)='addTodo(task, desc)'>Add To Do</button>
+	<button type="button" class="btn btn-primary" (click)='addTodoForm = !addTodoForm'>Cancel</button>
+
+</form>-->
+
+
+
+<!--
+
+<form *ngIf="editTodoForm">
+	<legend>Task To Do</legend>
+	<label>
+        Task: <input type="text" #task [value]='editTodoItem.todo'>
+    </label>
+	<label>
+        Description: <input type="text" #desc [value]='editTodoItem.desc'>
+    </label>
+	<label>
+        Date To Perform: <input type="date" #date [value]='editTodoItem.dateToPerform'>
+    </label>
+
+	<input type="submit" value="Save" (click)='updateTodo(editTodoItem.$key, task, desc)'>
+
+</form>-->
+
+
+<!--
+<form class="form-inline" *ngIf="editTodoForm">
+	<legend>Task To Do</legend>
+	<div class="form-group">
+		<label for="task">Task:</label>
+		<input type="text" class="form-control" id="task" #task [value]='editTodoItem.todo'>
+	</div>
+	<div class="form-group">
+		<label for="desc">Description:</label>
+		<input type="text" class="form-control" id="desc" #desc>
+	</div>
+
+	<div class="form-group">
+		<label for="desc">Description:</label>
+		<textarea class="form-control" rows="5" id="desc" #desc [value]='editTodoItem.desc'></textarea>
+	</div>
+
+	<button type="button" class="btn btn-primary" (click)='updateTodo(editTodoItem.$key, task, desc)'>Save</button>
+	<button type="button" class="btn btn-primary" (click)='editTodoForm = !editTodoForm'>Cancel</button>
+</form>-->
+
+
+<!--
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Sr.</th>
+      <th>Todo</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr todo *ngFor="let t of (todoFire | async); let i=index" [singleTodo]='t' [index]='i' (changeStatus)='changeStatus($event)'
+      (deleteTodo)='deleteTodoFir($event)' (updateTodo)='activeEdit($event)'>
+
+    </tr>
+  </tbody>
+</table>-->
+
+
+
+
+
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Todo List</md-toolbar>
+  <md-card-content>
+    <table style="width: 100%" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Todo</th>
+          <th>Description</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr todo *ngFor="let t of (todoFire | async); let i=index" [singleTodo]='t' [index]='i' (changeStatus)='changeStatus($event)'
+          (deleteTodo)='deleteTodoFir($event)' (updateTodo)='activeEdit($event)'>
+
+        </tr>
+      </tbody>
+    </table><br><br>
+    <button md-raised-button color="primary" data-toggle="modal" data-target="#myModal">Add Todo</button>
+  </md-card-content>
+</md-card>
+
+
+<!--<button class="btn btn-primary" *ngIf="!addTodoForm && !editTodoForm" (click)='toggleFormStatus()'><span class="glyphicon glyphicon-plus"></span>Todo</button>-->
+
+
+<!-- Trigger the modal with a button -->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span>Todo</button>-->
+
+
+
+<!-- Modal -->
+<!--<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">-->
+<!-- Modal content-->
+<!--<div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Todo</h4>
+      </div>
+      <form class="form-inline">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="task">Task:</label>
+            <input type="text" class="form-control" id="task" #task>
+          </div>
+                    <div class="form-group">
+            <label for="desc">Description:</label>
+            <textarea class="form-control" rows="5" id="desc" #desc></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">    
+          <button type="button" class="btn btn-primary" (click)='addTodo(task, desc)' data-dismiss="modal">Add To Do</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>-->
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <md-toolbar color="primary">Add Todo</md-toolbar>
+      <md-card-content>
+        <form>
+          <table style="width: 80%; margin: 0 auto;" cellspacing="0">
+            <tr>
+              <td>
+                <md-input #task placeholder="Todo" style="width: 100%" maxlength="20">
+                  <md-hint align="end">{{task.characterCount}} / 20</md-hint>
+                </md-input><br><br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <md-input #desc placeholder="Todo Description" style="width: 100%" maxlength="140">
+                  <md-hint align="end">{{desc.characterCount}} / 140</md-hint>
+                </md-input>
+              </td>
+            </tr>
+          </table>
+          <div class="modal-footer">
+            <button md-raised-button color="primary" (click)='addTodo(task, desc)' data-dismiss="modal">Add Todo</button>
+            <button md-raised-button color="primary" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </md-card-content>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="form-group">
+	<label for="task">Task:</label>
+	<input type="text" class="form-control" id="task" #task [value]='editTodoItem.todo'>
+</div>
+<div class="form-group">
+		<label for="desc">Description:</label>
+		<input type="text" class="form-control" id="desc" #desc>
+	</div>
+
+<div class="form-group">
+	<label for="desc">Description:</label>
+	<textarea class="form-control" rows="5" id="desc" #desc [value]='editTodoItem.desc'></textarea>
+</div>
+
+<button type="button" class="btn btn-primary" (click)='updateTodo(editTodoItem.$key, task, desc)'>Save</button>
+<button type="button" class="btn btn-primary" (click)='editTodoForm = !editTodoForm'>Cancel</button>-->
+
+<!-- Modal -->
+
+
+
+
+
+<div id="myModalEdit" class="modal fade" role="dialog" *ngIf="editTodoForm"> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <md-toolbar color="primary">Edit Todo</md-toolbar>
+      <md-card-content>
+        <form>
+          <table style="width: 80%; margin: 0 auto;" cellspacing="0">
+            <tr>
+              <td>
+                <md-input #task placeholder="Todo" style="width: 100%" maxlength="20" [value]='editTodoItem.todo'>
+                  <md-hint align="end">{{task.characterCount}} / 20</md-hint>
+                </md-input><br><br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <md-input #desc placeholder="Todo Description" style="width: 100%" maxlength="140" [value]='editTodoItem.desc'>
+                  <md-hint align="end">{{desc.characterCount}} / 140</md-hint>
+                </md-input>
+              </td>
+            </tr>
+          </table>
+          <div class="modal-footer">
+            <button md-raised-button color="primary" (click)='updateTodo(editTodoItem.$key, task, desc)' data-dismiss="modal">Save</button>
+            <button md-raised-button color="primary" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </md-card-content>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<!--<div id="myModalEdit" class="modal fade" role="dialog" *ngIf="editTodoForm">
+  <div class="modal-dialog">-->
+
+    <!-- Modal content-->
+    <!--<div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Todo</h4>
+      </div>
+      <form class="form-inline">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="task">Task:</label>
+            <input type="text" class="form-control" id="task" #task [value]='editTodoItem.todo'>
+          </div>
+
+          <div class="form-group">
+            <label for="desc">Description:</label>
+            <textarea class="form-control" rows="5" id="desc" #desc [value]='editTodoItem.desc'></textarea>
+          </div>-->
+
+          <!--<button type="button" class="btn btn-primary" (click)='addTodo(task, desc)'>Add To Do</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>-->
+<!--
+        </div>
+        <div class="modal-footer">-->
+          <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+          <!--<button type="button" class="btn btn-primary" (click)='updateTodo(editTodoItem.$key, task, desc)' data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>-->
+
+
+<!--<table>
+	<tr>
+		<td>Sr.</td>
+		<td>Todo</td>
+		<td>Description</td>-->
+<!--<td>Status</td>-->
+<!--<td>Action</td>-->
+<!--</tr>
+	<tr todo *ngFor="let t of (todoFire | async); let i=index" [singleTodo]='t' [index]='i' (changeStatus)='changeStatus($event)'
+		(deleteTodo)='deleteTodoFir($event)' (updateTodo)='activeEdit($event)'>
+
+	</tr>
+
+
+</table>-->
+
+<!--<ul>
+	<li *ngFor="let item of todoFire | async">
+		<input type="text" #updatetext [value]="item.text" />
+		<button (click)="updateItem(item.$key, updatetext.value)">Update</button>
+		<button (click)="deleteItem(item.$key)">Delete</button>
+	</li>
+</ul>
+<input type="text" #newitem />
+<button (click)="addItem(newitem.value)">Add</button>
+<button (click)="deleteEverything()">Delete All</button>-->
+
+
+
+<!--<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Todo List</md-toolbar>
+  <md-card-content>
+    <form>
+      <table style="width: 100%" cellspacing="0">
+        <tr>
+          <td>
+            <md-input #todoName placeholder="Todo" style="width: 100%" maxlength="140">
+              <md-hint align="end">{{todoName.characterCount}} / 140</md-hint>
+            </md-input>
+          </td>
+          <td>
+            <md-input #postalCode class="demo-full-width" maxlength="5" placeholder="Postal Code" value="94043">
+              <md-hint align="end">{{postalCode.characterCount}} / 5</md-hint>
+            </md-input>
+          </td>
+        </tr>
+      </table>
+      <button md-raised-button color="primary" data-toggle="modal" data-target="#myModal">Add Todo</button>
+    </form>
+  </md-card-content>
+</md-card>-->

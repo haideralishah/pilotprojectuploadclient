@@ -1,0 +1,32 @@
+<td>{{index + 1}}</td>
+<td>{{singleTodo.todo}}</td>
+<td>{{singleTodo.desc}}</td>
+<!--<td>{{singleTodo.datePerform}}</td>-->
+<!--<td>{{singleTodo.status === 0 ? "Not Done" : "Done"}}</td>-->
+<!--<td><input type="checkbox" (click)="statusChange(singleTodo)"></td>-->
+
+
+<!--<td><input type="submit" value="Delete" (click)="todoDelete(singleTodo.$key)"></td>
+<td><input type="submit" value="Edit" (click)="todoUpdate(singleTodo)"></td>-->
+
+<td>
+
+</td>
+<td>
+
+  <button md-mini-fab color="primary" (click)="todoUpdate(singleTodo)" data-toggle="modal" data-target="#myModalEdit">
+      <md-icon>create</md-icon>
+</button>
+  <button md-mini-fab color="primary" (click)="todoDelete(singleTodo.$key)">
+   <md-icon>delete</md-icon>
+</button>
+  <!--<button type="button" class="btn btn-primary" (click)="todoUpdate(singleTodo)" data-toggle="modal" data-target="#myModalEdit">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </button>-->
+  <!--<button type="button" class="btn btn-primary" (click)="todoDelete(singleTodo.$key)">
+      <span class="	glyphicon glyphicon-trash"></span>
+    </button>-->
+</td>
+
+
+<!--<td><button><span class="glyphicon glyphicon-name" (click)="todoDelete(singleTodo.$key)"></span></button></td>-->

@@ -1,0 +1,16 @@
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-lg-12">
+			<form enctype="multipart/form-data">
+				<input type="file" name="files" #fileUp (change)="fileChangeEvent($event)" />
+				<button type="file" class="btn btn-primary upload" (click)='uploadPsc(fileUp)'>Upload Angular Beauty Data</button>
+				<!--<app-uploaded-data *ngIf='uploadedData != undefined && uploadedData.dataToSave.length' [uploadedData]='uploadedData.dataToSave'
+					class="uploadChart"></app-uploaded-data>-->
+			</form>
+
+			<div *ngIf="uploadedDataNotFind != undefined && !uploadedDataNotFind.length" class="alert alert-danger nothingToUpload">Nothing to upload!</div>
+
+		</div>
+	</div>
+
+</div>

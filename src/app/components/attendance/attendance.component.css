@@ -1,0 +1,17 @@
+.upload{
+    position: relative !important;
+    top: 2em !important;
+
+
+}
+
+.uploadChart{
+        position: relative !important;
+        top: 2em !important;
+}
+
+
+.nothingToUpload{
+        position: relative !important;
+        top: 6em !important;
+}
