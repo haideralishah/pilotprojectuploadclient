@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-const URL = 'http://localhost:5000/uploadPsc';
+const URL = 'http://localhost:5000/uploadAngularSchool';
 
 
 @Component({
@@ -52,7 +52,7 @@ export class PscComponent implements OnInit {
     this.filesToUpload = <Array<File>>fileInput.target.files;
   }
 
-  makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
+  makeFileRequest(URL: string, params: Array<string>, files: Array<File>) {
     return new Promise((resolve, reject) => {
       var formData: any = new FormData();
       var xhr = new XMLHttpRequest();
@@ -68,7 +68,7 @@ export class PscComponent implements OnInit {
           }
         }
       }
-      xhr.open("POST", url, true);
+      xhr.open("POST", URL, true);
       xhr.send(formData);
     });
   }
